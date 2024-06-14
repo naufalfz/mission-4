@@ -12,31 +12,22 @@
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">TO DO LIST</h2>
             <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Employee | Position</p>
-            <p id="current-time"></p>
-            <div class="time">
+            <div class="text-white text-center pb-5">
                 <p id="current-time"></p>
             </div>
             <form class="space-y-8">
-                <!-- <div>
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
-                </div> -->
                 
                 <div class="sm:col-span-2">
                     <label for="task" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Task</label>
                     <textarea id="activity" rows="2" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write your task.." required></textarea>
                 </div>
-                <!-- <div>
-                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                    <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
-                </div> -->
                 <!-- <form class="max-w-sm mx-auto"> -->
                     <label for="priority" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an priority</label>
                     <select name="priority" id="priority" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                      <option selected value="Choose a Priority">-Choose a Priority-</option>
-                      <option value="Low">Low</option>
-                      <option value="Medium">Medium</option>
-                      <option value="High">High</option>
+                      <option selected value="">-Choose a Priority-</option>
+                      <option value="Low" class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Low</option>
+                      <option value="Medium" class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Medium</option>
+                      <option value="High" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">High</option>
                     </select>
                   <!-- </form> -->
                   <label for="priority" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select date</label>
@@ -361,7 +352,8 @@
             </tr>
         </thead>
         <tbody id="body-task">
-            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            
+           
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Apple MacBook Pro 17"
                 </th>
@@ -417,7 +409,7 @@
 </div>
 
 <div class="mt-10  overflow-x-auto shadow-md sm:rounded-lg">
-    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Done</h2>
+    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">DONE</h2>
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -439,7 +431,7 @@
             </tr>
         </thead> 
         <tbody id="body-done" class="line-through">
-            <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Apple MacBook Pro 17"
                 </th>
@@ -511,6 +503,7 @@
     <script src="script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
    
 </body>

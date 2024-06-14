@@ -14,11 +14,19 @@ const inpTask = document.querySelector('#activity');
 const inpPriority = document.querySelector('#priority');
 const inpDate = document.querySelector('#date');
 const btnSubmit = document.querySelector('#submit');
+const currentTime = document.getElementById('current-time');
 
 const btnDeleteAll = document.querySelector('#delete-all')
 const tblBodyTask = document.querySelector('#body-task');
 const tblBodyDone = document.querySelector('#body-done');
 
+const updateTime = () => {
+  const now = new Date();
+  currentTime.textContent = now.toDateString() + ' ' + now.toLocaleTimeString();
+};
+
+setInterval(updateTime, 1000);
+updateTime();
 
 function resetForm() {
   inpTask.value = "";
@@ -79,20 +87,40 @@ function renderTable() {
 
 btnSubmit.addEventListener('click', function (e) {
   e.preventDefault();
-  const valTask = inpTask.value;
-  const valDate = inpDate.value;
-  const valPriority = inpPriority.value;
+  let valTask = inpTask.value;
+  let valDate = inpDate.value;
+  let valPriority = inpPriority.value;
+
+  console.log(valDate);
+
+  if (valTask == "" || valDate == "" || valPriority == ""){
+    Swal.fire("Data tidak boleh kosong!");
+  } else {
+    if (valPriority == 'High') {
+      valPriority = '<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">High</span>';
+    } else if (valPriority == 'Medium') {
+      valPriority = '<span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Medium</span>';
+    } else {
+      valPriority = '<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Low</span>';
+    }
+    
+    todos.push({
+      id: todos.length ? todos[todos.length - 1]['id'] + 1 : 0,
+      task: valTask,
+      date: valDate,
+      prior: valPriority,
+      done: false
+    });
+    
+    resetForm();
+    renderTable();
+    Swal.fire({
+      title: "Data Tersimpan",
+      text: "You clicked the button!",
+      icon: "success"
+    });
+  }
   
-  todos.push({
-    id: todos.length ? todos[todos.length - 1]['id'] + 1 : 0,
-    task: valTask,
-    date: valDate,
-    prior: valPriority,
-    done: false
-  });
-  
-  resetForm();
-  renderTable();
 });
 
 btnDeleteAll.addEventListener('click', function(e) {

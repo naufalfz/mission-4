@@ -16,7 +16,7 @@
             <div class="time">
                 <p id="current-time"></p>
             </div>
-            <form action="#" class="space-y-8">
+            <form class="space-y-8">
                 <!-- <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
                     <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
@@ -24,7 +24,7 @@
                 
                 <div class="sm:col-span-2">
                     <label for="task" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Task</label>
-                    <textarea id="task" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write your task.." required></textarea>
+                    <textarea id="activity" rows="2" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write your task.." required></textarea>
                 </div>
                 <!-- <div>
                     <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
@@ -33,14 +33,15 @@
                 <!-- <form class="max-w-sm mx-auto"> -->
                     <label for="priority" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an priority</label>
                     <select name="priority" id="priority" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                      <option selected>Choose a Priority</option>
-                      <option value="US">Low</option>
-                      <option value="CA">Medium</option>
-                      <option value="FR">High</option>
+                      <option selected value="Choose a Priority">-Choose a Priority-</option>
+                      <option value="Low">Low</option>
+                      <option value="Medium">Medium</option>
+                      <option value="High">High</option>
                     </select>
                   <!-- </form> -->
-                  <input type="date" class="bg-blue-100">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <label for="priority" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select date</label>
+                  <input id="date" type="date" class="bg-blue-100">
+                <button type="submit" id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Add Task
                   </button>
             </form>
@@ -343,23 +344,23 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Task
+                    Checklist
                 </th>
                 <th scope="col" class="px-6 py-3">
                    Priority
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Due Date
+                    Task
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Checklist
+                    Due Date
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="body-task">
             <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Apple MacBook Pro 17"
@@ -421,23 +422,23 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Task
+                    Checklist
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Priority
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    DUE DATE
+                    Task
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    CHECKLIST
+                    Due Date
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
-        </thead>
-        <tbody>
+        </thead> 
+        <tbody id="body-done" class="line-through">
             <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Apple MacBook Pro 17"
@@ -493,8 +494,8 @@
     </table>
 </div>
 <div class="text-center mt-10">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Delete Task
+    <button id="delete-all" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Delete All
       </button>
 </div>
 

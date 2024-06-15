@@ -126,8 +126,21 @@ btnSubmit.addEventListener('click', function (e) {
 });
 
 btnDeleteAll.addEventListener('click', function(e) {
-  todos = [];
-  renderTable();
+  Swal.fire({
+  title: "Do you want to Delete All Task?",
+  showDenyButton: true,
+  confirmButtonText: "Delete",
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    todos = [];
+    renderTable();
+    Swal.fire("Delete All Task Success!", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Delete All Task is canceled", "", "info");
+  }
+});
+
 
   // Swal.fire({
   //   title: "Are you sure?",

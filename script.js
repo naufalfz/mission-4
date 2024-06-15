@@ -49,15 +49,15 @@ function removeTask(e) {
 
 function renderTable() {
   const renderTasks = todos.filter(todo => !todo.done).map(todo => `
-    <tr>
-      <td>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <td class="px-6 py-4">
         <input onclick='taskComplete(this)' type='checkbox' data-id='${todo.id}'>
       </td>
-      <td>${todo.prior}</td>
-      <td>${todo.task}</td>
-      <td>${todo.date}</td>
+      <td class="px-6 py-4">${todo.prior}</td>
+      <td class="px-6 py-4">${todo.task}</td>
+      <td class="px-6 py-4">${todo.date}</td>
       <td>
-        <a href='#' onclick='removeTask(this)' data-id='${todo.id}'>Hapus</a>
+        <a href='#' onclick='removeTask(this)' data-id='${todo.id}' class="px-6 py-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
       </td>
     </tr>
   `);
@@ -66,15 +66,15 @@ function renderTable() {
   
   
   const renderDone = todos.filter(todo => todo.done).map(todo => `
-    <tr>
-      <td>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <td class="px-6 py-4">
         <input onclick='taskComplete(this)' type='checkbox' data-id='${todo.id}'>
       </td>
-      <td class='done'>${todo.prior}</td>
-      <td class='done'>${todo.task}</td>
-      <td class='done'>${todo.date}</td>
+      <td id='done' class="px-6 py-4 line-through">${todo.prior}</td>
+      <td id='done' class="px-6 py-4 line-through">${todo.task}</td>
+      <td id='done' class="px-6 py-4 line-through">${todo.date}</td>
       <td>
-        <a href='#' onclick='removeTask(this)' data-id='${todo.id}'>Hapus</a>
+        <a href='#' onclick='removeTask(this)' data-id='${todo.id}' class="px-6 py-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
       </td>
     </tr>
   `);
@@ -94,14 +94,14 @@ btnSubmit.addEventListener('click', function (e) {
   console.log(valDate);
 
   if (valTask == "" || valDate == "" || valPriority == ""){
-    Swal.fire("Data tidak boleh kosong!");
+    Swal.fire("Data cannot be empty!!");
   } else {
     if (valPriority == 'High') {
-      valPriority = '<span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">High</span>';
+      valPriority = '<span class="bg-red-100 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-white">High</span>';
     } else if (valPriority == 'Medium') {
-      valPriority = '<span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20">Medium</span>';
+      valPriority = '<span class="bg-yellow-100 text-white text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-white">Medium</span>';
     } else {
-      valPriority = '<span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">Low</span>';
+      valPriority = '<span class="bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-white">Low</span>';
     }
     
     todos.push({
@@ -115,9 +115,11 @@ btnSubmit.addEventListener('click', function (e) {
     resetForm();
     renderTable();
     Swal.fire({
-      title: "Data Tersimpan",
-      text: "You clicked the button!",
-      icon: "success"
+      position: "top-center",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
     });
   }
   
@@ -126,6 +128,25 @@ btnSubmit.addEventListener('click', function (e) {
 btnDeleteAll.addEventListener('click', function(e) {
   todos = [];
   renderTable();
+
+  // Swal.fire({
+  //   title: "Are you sure?",
+  //   text: "You won't be able to revert this!",
+  //   icon: "warning",
+  //   showCancelButton: true,
+  //   confirmButtonColor: "#3085d6",
+  //   cancelButtonColor: "#d33",
+  //   confirmButtonText: "Yes, delete it!"
+  // }).then((result) => {
+  //   if (result.isConfirmed) {
+  //     Swal.fire({
+  //       title: "Deleted!",
+  //       text: "Your file has been deleted.",
+  //       icon: "success"
+  //     });
+  //   }
+  // });
+
 });
 
 

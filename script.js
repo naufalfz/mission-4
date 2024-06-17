@@ -54,8 +54,8 @@ function renderTable() {
         <input onclick='taskComplete(this)' type='checkbox' data-id='${todo.id}'>
       </td>
       <td class="px-6 py-4">${todo.prior}</td>
-      <td class="px-6 py-4">${todo.task}</td>
-      <td class="px-6 py-4">${todo.date}</td>
+      <td class="px-6 py-4 dark:text-white">${todo.task}</td>
+      <td class="px-6 py-4 dark:text-white">${todo.date}</td>
       <td>
         <a href='#' onclick='removeTask(this)' data-id='${todo.id}' class="px-6 py-4 font-medium text-blue-600 dark:text-blue-500 hover:underline">Hapus</a>
       </td>

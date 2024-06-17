@@ -31,7 +31,7 @@ updateTime();
 function resetForm() {
   inpTask.value = "";
   inpDate.value = "";
-  inpPriority.value = "Choose a Priority";
+  inpPriority.value = "-Choose a Priority-";
 }
 
 function taskComplete(e) {
